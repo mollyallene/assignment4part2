@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>Joe's Hotdog Stand</title>
+<script language="JavaScript">
+	function cost()
+	{
+		var price = {"hotdogs": 3.25, "fries": 2, "drinks": 1.5};
+		var quantity = {"hotdogs": document.getElementById('hotdogs').value, 
+						"fries": document.getElementById('fries').value,
+						"drinks": document.getElementById('drinks').value
+						};
+		// var dogs = document.getElementById('hotdogs').value;
+		// var fries = document.getElementById('fries').value;
+		// var drinks = document.getElementById('drinks').value;
+		var cost = (price["hotdogs"]*quantity["hotdogs"] + price["fries"]*quantity["fries"] + price["drinks"]*quantity["drinks"]);
+
+		if (cost > 20)
+		{
+			cost = (cost*.9);
+		}
+		cost = (cost*1.0625).toFixed(2);
+		alert("Your order: " + quantity["hotdogs"] + " hotdogs, " + quantity["fries"] + " fries, " + quantity["drinks"] + " drinks. The price is $" + cost);
+	}
+</script>
+</head>
+<body>
+	<h1>Joe's Hotdog Stand</h1>
+	<form>
+		Hotdogs ($3.25):<input type="text" name="hotdogs" id="hotdogs"/>
+		<br>
+		French Fries ($2.00): <input type="text" name="fries" id="fries"/>
+		<br>
+		Drinks ($1.50): <input type="text" name="drinks" id="drinks"/>
+		<br>
+		<button onclick="cost()">Order</button>
+	</form>
+</body>
+</html>
