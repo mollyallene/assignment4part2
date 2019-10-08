@@ -9,17 +9,19 @@
 						"fries": document.getElementById('fries').value,
 						"drinks": document.getElementById('drinks').value
 						};
-		// var dogs = document.getElementById('hotdogs').value;
-		// var fries = document.getElementById('fries').value;
-		// var drinks = document.getElementById('drinks').value;
 		var cost = (price["hotdogs"]*quantity["hotdogs"] + price["fries"]*quantity["fries"] + price["drinks"]*quantity["drinks"]);
+		var subtotal = cost;
 
+		var new_cost = cost;
+		var discount = 0;
 		if (cost > 20)
 		{
-			cost = (cost*.9);
+			new_cost = (cost*.9);
+			discount = cost - new_cost;
 		}
-		cost = (cost*1.0625).toFixed(2);
-		alert("Your order: " + quantity["hotdogs"] + " hotdogs, " + quantity["fries"] + " fries, " + quantity["drinks"] + " drinks. The price is $" + cost);
+		var tax = (cost*.0625);
+		new_cost = (cost*1.0625).toFixed(2);
+		alert("Your order: " + quantity["hotdogs"] + " hotdogs, " + quantity["fries"] + " fries, " + quantity["drinks"] + " drinks. The subtotal is " + subtotal + " Your discount is " + discount + ". Tax is " + tax + ". The price is $" + new_cost);
 	}
 </script>
 </head>
@@ -36,3 +38,4 @@
 	</form>
 </body>
 </html>
+
